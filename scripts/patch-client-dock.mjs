@@ -366,6 +366,7 @@ const oldApply = `		function apply(ctx) {
 			}
 		}`;
 
+const rightPaneMount = client.includes("function RightPane()") ? " h(RightPane)," : "";
 const newApply = `		function apply(ctx) {
 			ctx.effect(() => ctx.locale.register(NS, { zh, en }), "dsh-purge-safe: dictionaries");
 			const t = ctx.locale.bind(NS);
@@ -374,7 +375,7 @@ const newApply = `		function apply(ctx) {
 				name: "shell.overlay",
 				id: "dsh-purge-safe-dock",
 				order: 50,
-			}, () => h(react.Fragment, null, h(WelcomeNotice), h(PurgeDock), h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate))));
+			}, () => h(react.Fragment, null, h(WelcomeNotice), h(PurgeDock),${rightPaneMount} h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate))));
 			try {
 				if (typeof ctx.inject === "function") {
 					ctx.inject(["sessions", "uiWorkspace", "workspaces", "conversation"], (host) => installRewindUi(host));
@@ -400,11 +401,11 @@ if (client.includes('id: "dsh-purge-safe-dock"')) {
 	if (!client.includes("h(HeroNewSessionMount)")) {
 		client = client.replace(
 			"h(WelcomeNotice), h(PurgeDock), h(EnvAdaptSendGate)",
-			"h(WelcomeNotice), h(PurgeDock), h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate)",
+			`h(WelcomeNotice), h(PurgeDock),${rightPaneMount} h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate)`,
 		);
 		client = client.replace(
 			"h(PurgeDock), h(EnvAdaptSendGate)",
-			"h(PurgeDock), h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate)",
+			`h(PurgeDock),${rightPaneMount} h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate)`,
 		);
 	}
 } else if (client.includes(oldApply)) {

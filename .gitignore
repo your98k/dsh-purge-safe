@@ -1,6 +1,7 @@
 # 不上传
 node_modules/
 *.tgz
+/intel/
 npm-debug.log*
 *.log
 .DS_Store

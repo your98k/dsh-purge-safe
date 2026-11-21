@@ -255,6 +255,23 @@
 .dshp-restart-card .dshp-btn{min-height:var(--dshp-control-height);padding:0 var(--ui-space-3);font-size:var(--ui-text-control);line-height:var(--ui-leading-control);color:var(--dshp-ink);background:var(--dshp-paper);border:1px solid var(--dshp-line);border-radius:var(--dshp-control-radius)}
 .dshp-restart-card .dshp-btn-primary,.dshp-restart-card .dshp-btn-primary:hover:not(:disabled){background:var(--dshp-primary);border-color:var(--dshp-primary);color:var(--dshp-primary-ink)}
 
+/* The portalled dialog owns its theme. Host dark-mode selectors must not
+ * pair light text with an explicitly light glass surface (or vice versa). */
+.dshp-restart-mask[data-theme] .dshp-restart-card {
+  color:var(--ui-text);
+}
+.dshp-restart-mask[data-theme] .dshp-restart-card .dshp-btn {
+  color:var(--ui-text);
+  background:var(--ui-subtle);
+  border-color:var(--ui-line-strong);
+}
+.dshp-restart-mask[data-theme] .dshp-restart-card .dshp-btn-primary,
+.dshp-restart-mask[data-theme] .dshp-restart-card .dshp-btn-primary:hover:not(:disabled) {
+  color:var(--ui-on-primary);
+  background:var(--ui-primary);
+  border-color:var(--ui-primary);
+}
+
 /* Clean page: compact status strip, balanced editor workspace, full-width list settings. */
 .dshp-root .dshp-panel.dshp-clean-page{
   width:100%;

@@ -51,6 +51,7 @@ id_ed25519
 # 与 Git 同步排除本地原文、草稿、备份和安装包
 node_modules/
 *.tgz
+/intel/
 npm-debug.log*
 *.log
 .DS_Store

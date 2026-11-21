@@ -462,3 +462,38 @@
   backdrop-filter:none;
   -webkit-backdrop-filter:none;
 }
+
+/* Fullscreen scroll tiles must not sample another viewport-sized live blur
+ * or dozens of nested card filters. Keep the water, tint, glint and borders;
+ * only bounded chrome and dialog overlays retain live backdrop sampling. */
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) {
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) :is(.rt-page-content[data-page],.dshp-studio-main),
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) :is(.rt-page-content[data-page],.dshp-studio-main) :where(*):not(:where(
+  .rt-modal,.rt-modal *,.rt-modal-box,.rt-modal-box *,
+  .rt-shot-zoom,.rt-shot-zoom *,
+  .dshp-modal-bg,.dshp-modal-bg *,
+  .dshp-auth-mask,.dshp-auth-mask *,
+  .dshp-restart-mask,.dshp-restart-mask *,
+  [role=dialog],[role=dialog] *
+)) {
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}

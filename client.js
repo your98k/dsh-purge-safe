@@ -740,8 +740,48 @@ const productTheme = createProductTheme();
 			"dock.inSession": "dsh-purge-safe",
 			"dock.redteam": "红队模式",
 			"dock.full": "全面浏览",
+			"dock.exitFull": "退出全屏",
 			"dock.close": "收起",
 			"dock.unauthorized": "未授权",
+			"pane.tasks": "任务",
+			"pane.drill": "演练台",
+			"pane.map": "会话地图",
+			"pane.close": "收起分栏",
+			"pane.mode": "显示方式",
+			"pane.mode.float": "浮动窗",
+			"pane.mode.left": "靠左停靠",
+			"pane.mode.right": "靠右停靠",
+			"pane.clean": "清洗",
+			"pane.cleanHint": "打开清洗面板（补丁、卸载、外观都在这里）",
+			"pane.full": "全面浏览",
+			"pane.fullHint": "打开完整演练台",
+			"pane.dragHint": "按住这里拖动面板",
+			"pane.refresh": "刷新",
+			"pane.tasksOff": "共享任务板还没启用。进入红队模式后，主会话派发任务时会自动出现在这里。",
+			"pane.tasksEmpty": "当前没有共享任务。",
+			"pane.tasksFail": "任务板读取失败",
+			"pane.owner": "负责人",
+			"pane.unowned": "未分配",
+			"pane.stage.ended": "已完成",
+			"pane.stage.answer": "等人提供",
+			"pane.stage.review": "等人验收",
+			"pane.stage.blocked": "受阻",
+			"pane.stage.failed": "失败待处理",
+			"pane.stage.working": "在跑",
+			"pane.stage.queued": "排队中",
+			"pane.stage.idle": "空闲",
+			"pane.stage.unknown": "未接入",
+			"pane.orch.title": "编排设置",
+			"pane.orch.board": "共享任务板",
+			"pane.orch.always": "红队模式下恒开",
+			"pane.orch.boardHint": "建卡、派活、回报、阶段判定都在这一层；红队会话不需要单独打开。",
+			"pane.orch.stall": "卡住阈值（分钟，0 关闭）",
+			"pane.orch.stallHint": "认领后超过这么久没有任何回报，就标成「受阻」并把分钟数写在卡上。",
+			"pane.orch.error": "编排设置失败",
+			"pane.orch.save": "保存",
+			"pane.authorize": "先完成演练台授权",
+			"pane.mapMissing": "会话地图组件没加载出来。",
+			"pane.noSession": "还没有选中的会话。",
 			"attn.toast.title": "需要你决定",
 			"attn.toast.go": "填入输入框",
 			"attn.toast.later": "稍后",
@@ -1108,8 +1148,48 @@ const productTheme = createProductTheme();
 			"dock.inSession": "dsh-purge-safe",
 			"dock.redteam": "Red team",
 			"dock.full": "Full view",
+			"dock.exitFull": "Exit fullscreen",
 			"dock.close": "Collapse",
 			"dock.unauthorized": "Unauthorized",
+			"pane.tasks": "Tasks",
+			"pane.drill": "Drill",
+			"pane.map": "Session map",
+			"pane.close": "Close pane",
+			"pane.mode": "Layout",
+			"pane.mode.float": "Floating",
+			"pane.mode.left": "Dock left",
+			"pane.mode.right": "Dock right",
+			"pane.clean": "Clean",
+			"pane.cleanHint": "Open the clean panel (patches, uninstall, appearance)",
+			"pane.full": "Full view",
+			"pane.fullHint": "Open the full drill console",
+			"pane.dragHint": "Drag here to move the pane",
+			"pane.refresh": "Refresh",
+			"pane.tasksOff": "The shared task board is not enabled yet. Once red-team mode runs and the main session dispatches tasks, they appear here.",
+			"pane.tasksEmpty": "No shared tasks right now.",
+			"pane.tasksFail": "Task board read failed",
+			"pane.owner": "Owner",
+			"pane.unowned": "Unassigned",
+			"pane.stage.ended": "Done",
+			"pane.stage.answer": "Needs input",
+			"pane.stage.review": "Needs review",
+			"pane.stage.blocked": "Blocked",
+			"pane.stage.failed": "Failed, needs you",
+			"pane.stage.working": "Running",
+			"pane.stage.queued": "Queued",
+			"pane.stage.idle": "Idle",
+			"pane.stage.unknown": "Not linked",
+			"pane.orch.title": "Orchestrator settings",
+			"pane.orch.board": "Shared task board",
+			"pane.orch.always": "Always on in red-team mode",
+			"pane.orch.boardHint": "Tasks, dispatch, reports and stage judgement all live here; no separate switch for red-team sessions.",
+			"pane.orch.stall": "Stall threshold (minutes, 0 = off)",
+			"pane.orch.stallHint": "With no report for this long after claiming, the card turns to Blocked and shows how long it has been.",
+			"pane.orch.error": "Orchestrator settings failed",
+			"pane.orch.save": "Save",
+			"pane.authorize": "Authorize the drill first",
+			"pane.mapMissing": "The session map component did not load.",
+			"pane.noSession": "No session selected yet.",
 			"attn.toast.title": "Needs your decision",
 			"attn.toast.go": "Fill the message",
 			"attn.toast.later": "Later",
@@ -1607,7 +1687,6 @@ body[data-ds-dark-theme] .dshp-restart-card .dshp-btn-primary,body[data-ds-dark-
 
 .dshp-dock{position:fixed;top:12px;right:12px;z-index:10050;display:flex;flex-direction:column;width:var(--dshp-dock-w,620px);height:var(--dshp-dock-h,72vh);min-width:380px;min-height:320px;max-width:calc(100vw - 16px);max-height:calc(100vh - 16px);box-sizing:border-box;background:color-mix(in srgb,var(--dsw-alias-bg-layer-1,var(--dshp-paper,#1c1c1c)) 52%,transparent);backdrop-filter:blur(22px) saturate(1.35);-webkit-backdrop-filter:blur(22px) saturate(1.35);border:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,var(--dshp-line,#555)) 65%,transparent);border-radius:12px;box-shadow:0 18px 48px color-mix(in srgb,#000 30%,transparent),0 0 0 1px color-mix(in srgb,#fff 6%,transparent);pointer-events:auto;color:var(--dsw-alias-label-primary,var(--dshp-ink,#f2f2f2));overflow:visible}
 .dshp-dock[data-open="0"]{display:none}
-.dshp-launch{display:none!important}
 .dshp-dock-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,var(--dshp-line,#555)) 55%,transparent);background:transparent;cursor:grab;user-select:none;touch-action:none;color:var(--dsw-alias-label-primary,var(--dshp-ink,#f2f2f2));border-radius:12px 12px 0 0}
 .dshp-dock-head:active{cursor:grabbing}
 .dshp-dock-head b{font-size:14px;font-weight:600;color:inherit;text-shadow:0 1px 0 color-mix(in srgb,#000 18%,transparent)}
@@ -2154,6 +2233,23 @@ body:not([data-ds-dark-theme]) .dshp-auth-ops button.primary{background:var(--ds
 .dshp-restart-card p{font-size:var(--ui-text-body);font-weight:400;line-height:var(--ui-leading-body)}
 .dshp-restart-card .dshp-btn{min-height:var(--dshp-control-height);padding:0 var(--ui-space-3);font-size:var(--ui-text-control);line-height:var(--ui-leading-control);color:var(--dshp-ink);background:var(--dshp-paper);border:1px solid var(--dshp-line);border-radius:var(--dshp-control-radius)}
 .dshp-restart-card .dshp-btn-primary,.dshp-restart-card .dshp-btn-primary:hover:not(:disabled){background:var(--dshp-primary);border-color:var(--dshp-primary);color:var(--dshp-primary-ink)}
+
+/* The portalled dialog owns its theme. Host dark-mode selectors must not
+ * pair light text with an explicitly light glass surface (or vice versa). */
+.dshp-restart-mask[data-theme] .dshp-restart-card {
+  color:var(--ui-text);
+}
+.dshp-restart-mask[data-theme] .dshp-restart-card .dshp-btn {
+  color:var(--ui-text);
+  background:var(--ui-subtle);
+  border-color:var(--ui-line-strong);
+}
+.dshp-restart-mask[data-theme] .dshp-restart-card .dshp-btn-primary,
+.dshp-restart-mask[data-theme] .dshp-restart-card .dshp-btn-primary:hover:not(:disabled) {
+  color:var(--ui-on-primary);
+  background:var(--ui-primary);
+  border-color:var(--ui-primary);
+}
 
 /* Clean page: compact status strip, balanced editor workspace, full-width list settings. */
 .dshp-root .dshp-panel.dshp-clean-page{
@@ -3195,6 +3291,41 @@ body:not([data-ds-dark-theme]) .dshp-auth-ops button.primary{background:var(--ds
   -webkit-backdrop-filter:none;
 }
 
+/* Fullscreen scroll tiles must not sample another viewport-sized live blur
+ * or dozens of nested card filters. Keep the water, tint, glint and borders;
+ * only bounded chrome and dialog overlays retain live backdrop sampling. */
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) {
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) :is(.rt-page-content[data-page],.dshp-studio-main),
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) :is(.rt-page-content[data-page],.dshp-studio-main) :where(*):not(:where(
+  .rt-modal,.rt-modal *,.rt-modal-box,.rt-modal-box *,
+  .rt-shot-zoom,.rt-shot-zoom *,
+  .dshp-modal-bg,.dshp-modal-bg *,
+  .dshp-auth-mask,.dshp-auth-mask *,
+  .dshp-restart-mask,.dshp-restart-mask *,
+  [role=dialog],[role=dialog] *
+)) {
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+
 
 /* Workspace layout: one navigation rail, one context row, then page content.
  * Compact mode is measured from the actual plugin width, including full views. */
@@ -3357,6 +3488,134 @@ body:not([data-ds-dark-theme]) .dshp-auth-ops button.primary{background:var(--ds
 }
 
 /* __DSH_PRODUCT_SHELL_END__ */
+/* Task board / drill / clean side pane. Keep this outside the generated shell marker so
+   build-client.mjs refreshes product tokens without dropping these rules. */
+/* 三种形态：float 浮在正文上（可拖动、可缩放）；left 贴左边占满整高；right 贴右边占满整高。
+   形态只由 data-pane-mode 决定，宽度/位置走内联样式，避免和 .dshp-dock 的浮动窗默认值打架。 */
+.dshp-dock.dshp-pane{position:fixed;z-index:10060;display:flex;flex-direction:column;box-sizing:border-box;
+  background:var(--ui-surface,var(--dshp-paper,#fff));color:var(--ui-text,var(--dshp-ink,#1b2b40));overflow:hidden;
+  min-width:300px;max-width:calc(100vw - 16px);
+  /* 底座是玻璃面板：这里必须去掉实时模糊，否则既糊字又给 position:fixed 的地图全屏造包含块。 */
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;contain:none}
+/* 侧栏里也内嵌演练台/会话地图，把这层需要的 --rt-* 全部映射到当前主题的 --ui-*，
+   否则浮动/停靠面板里的地图会退回硬编码浅色值（深色模式下白底黑字）。
+   .dshp-pane-map 是裸 SessionMap 的宿主，不在 .rt-dock 里，必须单独接一遍。 */
+.dshp-dock.dshp-pane,.dshp-pane-map{
+  --rt-bg-base:var(--ui-canvas);--rt-bg-surface:var(--ui-surface);--rt-bg-subtle:var(--ui-subtle);
+  --rt-bg-raised:var(--ui-hover);--rt-rail:var(--ui-surface);--rt-bg-elevated:var(--ui-surface);
+  --rt-border:var(--ui-line);--rt-border-strong:var(--ui-line-strong);
+  --rt-ink:var(--ui-text);--rt-muted:var(--ui-muted);--rt-mute:var(--ui-muted);--rt-ink-soft:var(--ui-muted);
+  --rt-accent:var(--ui-link);--rt-primary:var(--ui-primary);--rt-accent-strong:var(--ui-primary-hover);
+  --rt-accent-soft:var(--ui-selected);--rt-accent-ink:var(--ui-on-primary);
+  --rt-success:var(--ui-success);--rt-success-bg:var(--ui-success-bg);
+  --rt-warning:var(--ui-warning);--rt-warning-bg:var(--ui-warning-bg);
+  --rt-danger:var(--ui-danger);--rt-danger-bg:var(--ui-danger-bg);
+  --rt-shadow:var(--ui-panel-shadow);
+  --dsw-alias-bg-base:var(--rt-bg-base);--dsw-alias-bg-layer-1:var(--rt-bg-surface);--dsw-alias-bg-layer-2:var(--rt-bg-subtle);
+  --dsw-alias-label-primary:var(--rt-ink);--dsw-alias-label-secondary:var(--rt-muted);
+  --dsw-alias-border-l1:var(--rt-border);--dsw-alias-brand-primary:var(--rt-accent);
+  color-scheme:var(--ui-scheme);background:var(--ui-surface);color:var(--ui-text)}
+.dshp-dock.dshp-pane[data-pane-mode="left"]{top:0;left:0;bottom:0;right:auto;height:auto;min-height:0;max-height:none;border-radius:0;
+  border-right:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));box-shadow:12px 0 32px rgb(0 0 0 / .14)}
+.dshp-dock.dshp-pane[data-pane-mode="right"]{top:0;right:0;bottom:0;left:auto;height:auto;min-height:0;max-height:none;border-radius:0;
+  border-left:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));box-shadow:-12px 0 32px rgb(0 0 0 / .14)}
+.dshp-dock.dshp-pane[data-pane-mode="float"]{border-radius:12px;
+  border:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));
+  box-shadow:0 18px 48px rgb(0 0 0 / .22),0 0 0 1px rgb(255 255 255 / .05)}
+.dshp-dock.dshp-pane[data-pane-mode="float"] .dshp-pane-head{cursor:grab;user-select:none;touch-action:none}
+.dshp-dock.dshp-pane[data-pane-mode="float"] .dshp-pane-head:active{cursor:grabbing}
+/* 形态切换：三枚小钮，塞在标题行里，不额外占一条。 */
+.dshp-pane-modes{display:inline-flex;flex:0 0 auto;align-items:center;gap:2px;padding:2px;
+  border:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));border-radius:8px;background:var(--ui-hover,var(--dshp-fill,#f1f5fa))}
+.dshp-pane-head .dshp-pane-mode{min-height:22px;padding:0 7px;border:1px solid transparent;border-radius:6px;
+  background:transparent;color:var(--ui-muted,var(--dshp-mute,#64748b));font-size:var(--ui-text-helper,12px);cursor:pointer}
+.dshp-pane-head .dshp-pane-mode:hover{background:var(--ui-surface,var(--dshp-paper,#fff));color:var(--ui-text,var(--dshp-ink,#1b2b40))}
+.dshp-pane-head .dshp-pane-mode.on{border-color:var(--ui-line-strong,var(--dshp-line,#a3b5cc));
+  background:var(--ui-surface,var(--dshp-paper,#fff));color:var(--ui-text,var(--dshp-ink,#1b2b40));font-weight:650}
+.dshp-pane-head{display:flex;align-items:center;gap:8px;flex:0 0 auto;flex-wrap:wrap;row-gap:6px;min-height:48px;padding:6px 12px;background:var(--ui-surface,var(--dshp-paper,#fff));border-bottom:1px solid var(--ui-line,var(--dshp-line,#d8e1ed))}
+.dshp-pane-head b{font-size:var(--ui-text-control,13px);font-weight:650;white-space:nowrap}
+.dshp-pane-tools{display:inline-flex;flex:0 0 auto;align-items:center;gap:6px}
+.dshp-pane-tools .dshp-theme-control{margin:0}
+.dshp-pane-tools select.dshp-theme-select{width:104px;min-height:26px;height:26px;padding:0 6px}
+/* 窄分栏优先保住按钮：标题与品牌块可压缩，按钮永远不换行丢出去。 */
+.dshp-pane-sub{flex:1 1 120px}
+.dshp-pane-head .dshp-pane-modes{margin-left:auto}
+.dshp-pane-brand{display:inline-flex;align-items:center;justify-content:center;width:26px;height:27px;border-radius:var(--ui-radius-control,8px);background:var(--ui-link,var(--dshp-accent,#3f6b52));color:var(--ui-selected-text,#fff);font:650 15px/1 var(--ui-font,system-ui);text-transform:uppercase}
+.dshp-pane-sub{min-width:0;flex:1;overflow:hidden;color:var(--ui-muted,var(--dshp-mute,#64748b));font-size:var(--ui-text-helper,12px);text-overflow:ellipsis;white-space:nowrap}
+.dshp-pane-head button,.dshp-pane-actions button{appearance:none;min-height:28px;padding:0 9px;border:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));border-radius:var(--ui-radius-control,8px);background:var(--ui-surface,var(--dshp-paper,#fff));color:var(--ui-text,var(--dshp-ink,#1b2b40));cursor:pointer;font:inherit;font-size:var(--ui-text-helper,12px)}
+.dshp-pane-head button:hover,.dshp-pane-actions button:hover{background:var(--ui-hover,var(--dshp-fill,#eef3f8));border-color:var(--ui-line-strong,var(--dshp-line,#a3b5cc))}
+.dshp-pane-tabs{display:flex;flex:0 0 auto;gap:2px;padding:4px 12px 0;background:var(--ui-surface,var(--dshp-paper,#fff));border-bottom:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));overflow-x:auto}
+.dshp-pane-tab{appearance:none;padding:8px 12px;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--ui-muted,var(--dshp-mute,#64748b));cursor:pointer;font:inherit;font-size:var(--ui-text-control,13px);white-space:nowrap}
+.dshp-pane-tab:hover{color:var(--ui-text,var(--dshp-ink,#1b2b40))}
+.dshp-pane-tab.on{border-bottom-color:var(--ui-link,var(--dshp-accent,#3f6b52));color:var(--ui-text,var(--dshp-ink,#1b2b40));font-weight:650}
+.dshp-pane-body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.dshp-pane-scroll{flex:1;min-height:0;overflow:auto;padding:var(--ui-space-3,12px);background:var(--ui-canvas,var(--dshp-bg,transparent))}
+/* 会话地图按分栏自身可用宽度收放：auto-fit 不需要容器查询，
+   也就不会给 position:fixed 的地图全屏态造出意外的包含块。 */
+.dshp-pane-map{background:var(--ui-canvas)}
+.dshp-pane-map .rt-session-map{margin-bottom:0;border:0;border-radius:0;background:transparent}
+.dshp-pane-map .rt-session-map-layout{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));min-height:0}
+.dshp-pane-map .rt-session-map-graph-pane{min-height:300px}
+.dshp-pane-map .rt-session-map-graph{min-height:300px}
+.dshp-pane-map .rt-session-map-detail{min-height:0}
+/* 一列布局时详情跟在图下面，别留一条分裂边框。 */
+.dshp-pane-map .rt-session-map-graph-pane{border-right:1px solid var(--rt-border)}
+.dshp-pane-map .rt-session-map-head,.dshp-pane-map .rt-session-map-toolbar,.dshp-pane-map .rt-session-map-note{padding-left:10px;padding-right:10px}
+.dshp-pane-map .rt-session-map-toolbar .rt-session-map-filter{width:84px}
+/* 统计条在这层没有 .rt-collab-page 兜底，自己给一套，四格自动换行。 */
+.dshp-pane-map .rt-session-map-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:6px;padding:8px 10px;
+  border-bottom:1px solid var(--rt-border);background:var(--rt-bg-base)}
+.dshp-pane-map .rt-session-map-stat{display:flex;align-items:baseline;justify-content:space-between;gap:6px;min-width:0;
+  padding:4px 8px;border:1px solid var(--rt-border);border-radius:8px;background:var(--rt-bg-surface)}
+.dshp-pane-map .rt-session-map-stat small{color:var(--rt-muted);font-size:var(--ui-text-helper);line-height:var(--ui-leading-body)}
+.dshp-pane-map .rt-session-map-stat b{color:var(--rt-ink);font-size:var(--ui-text-control);font-variant-numeric:tabular-nums}
+.dshp-pane-map .rt-session-map-foot{background:var(--rt-bg-surface)}
+/* 地图里的小控件跟着当前主题走，别退回硬编码浅色。 */
+.dshp-pane-map .rt-session-map .rt-input{background:var(--rt-bg-surface);border-color:var(--rt-border);color:var(--rt-ink)}
+.dshp-pane-map .rt-session-map .rt-input option{background:var(--rt-bg-surface);color:var(--rt-ink)}
+.dshp-pane-task{margin:0 0 8px;padding:10px 11px;border:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));border-left:3px solid var(--ui-muted,var(--dshp-mute,#64748b));border-radius:var(--ui-radius-control,8px);background:var(--ui-surface,var(--dshp-paper,#fff));color:var(--ui-text,var(--dshp-ink,#1b2b40))}
+.dshp-pane-task-head{display:flex;align-items:flex-start;gap:8px}
+.dshp-pane-task-name{flex:1;min-width:0;font-size:var(--ui-text-control,13px);font-weight:650;line-height:1.45;overflow-wrap:anywhere}
+.dshp-pane-task-desc{margin:3px 0 0;color:var(--ui-muted,var(--dshp-mute,#64748b));font-size:var(--ui-text-helper,12px);line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.dshp-pane-task-meta{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px;color:var(--ui-muted,var(--dshp-mute,#64748b));font-size:var(--ui-text-helper,12px);line-height:1.5}
+.dshp-pane-chip{display:inline-flex;flex:none;align-items:center;padding:1px 6px;border:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));border-radius:99px;background:transparent;color:var(--ui-muted,var(--dshp-mute,#64748b));font-size:var(--ui-text-helper,12px);white-space:nowrap}
+.dshp-pane-chip.is-wait,.dshp-pane-task-wait{border-color:var(--ui-warning,var(--dshp-warn,#8a5a12));background:var(--ui-warning-bg,#fcf4e4);color:var(--ui-warning,var(--dshp-warn,#8a5a12))}
+.dshp-pane-chip.is-live,.dshp-pane-task-live{border-color:var(--ui-success,var(--dshp-ok,#1f7a45));background:var(--ui-success-bg,#e9f5ee);color:var(--ui-success,var(--dshp-ok,#1f7a45))}
+.dshp-pane-chip.is-fail,.dshp-pane-task-fail{border-color:var(--ui-danger,var(--dshp-bad,#b63f3f));background:var(--ui-danger-bg,#fbeeed);color:var(--ui-danger,var(--dshp-bad,#b63f3f))}
+.dshp-pane-chip.is-quiet{border-color:var(--ui-line,var(--dshp-line,#d8e1ed));background:transparent;color:var(--ui-muted,var(--dshp-mute,#64748b))}
+.dshp-pane-chip.is-done,.dshp-pane-task-done{opacity:.7}
+.dshp-pane-needs{color:var(--ui-warning,var(--dshp-warn,#8a5a12))}
+.dshp-pane-empty{padding:28px 12px;color:var(--ui-muted,var(--dshp-mute,#64748b));font-size:var(--ui-text-helper,12px);line-height:1.6;text-align:center;overflow-wrap:anywhere}
+.dshp-pane-actions{display:flex;flex:0 0 auto;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));background:var(--ui-surface,var(--dshp-paper,#fff))}
+.dshp-pane-actions button.primary{border-color:var(--ui-link,var(--dshp-accent,#3f6b52));background:var(--ui-link,var(--dshp-accent,#3f6b52));color:var(--ui-selected-text,#fff)}
+.dshp-pane-orch{margin-top:10px;padding-top:10px;border-top:1px solid var(--ui-line,var(--dshp-line,#d8e1ed))}
+.dshp-pane-orch-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dshp-pane-orch-label{flex:1 1 auto;min-width:0;color:var(--ui-text,var(--dshp-ink,#1b2b40));font-size:var(--ui-text-label,12px)}
+.dshp-pane-orch-fixed{padding:1px 6px;border:1px solid var(--ui-success,var(--dshp-ok,#1f7a45));border-radius:99px;background:var(--ui-success-bg,#e9f5ee);color:var(--ui-success,var(--dshp-ok,#1f7a45));font-size:var(--ui-text-helper,12px)}
+.dshp-pane-orch-hint{margin:4px 0 8px;color:var(--ui-muted,var(--dshp-mute,#64748b));font-size:var(--ui-text-helper,12px);line-height:1.55;overflow-wrap:anywhere}
+.dshp-pane-error{margin:4px 0 8px;color:var(--ui-danger,var(--dshp-bad,#b63f3f));font-size:var(--ui-text-helper,12px);line-height:1.55;overflow-wrap:anywhere}
+.dshp-pane-orch input[type=number]{width:74px;box-sizing:border-box;padding:4px 7px;border:1px solid var(--ui-line,var(--dshp-line,#d8e1ed));border-radius:var(--ui-radius-control,8px);background:var(--ui-surface,var(--dshp-paper,#fff));color:var(--ui-text,var(--dshp-ink,#1b2b40));font:inherit;font-size:var(--ui-text-helper,12px)}
+/* 把手方向跟着形态走：贴边拖外侧那条边，浮动窗拖右下角。 */
+.dshp-pane-resize{position:absolute;top:0;bottom:0;width:8px;cursor:ew-resize;touch-action:none;background:transparent;z-index:2}
+.dshp-dock.dshp-pane[data-pane-mode="left"] .dshp-pane-resize{right:-4px;left:auto}
+.dshp-dock.dshp-pane[data-pane-mode="right"] .dshp-pane-resize{left:-4px;right:auto}
+.dshp-dock.dshp-pane[data-pane-mode="float"] .dshp-pane-resize{left:auto;right:0;top:auto;bottom:0;width:18px;height:18px;cursor:nwse-resize;
+  background:linear-gradient(135deg,transparent 52%,color-mix(in srgb,var(--ui-link,var(--dshp-accent,#3f6b52)) 70%,transparent) 52%)}
+.dshp-pane-resize:hover{background:color-mix(in srgb,var(--ui-link,var(--dshp-accent,#3f6b52)) 25%,transparent)}
+.dshp-pane-body .rt-dock:not(.rt-embedded){position:relative;inset:auto;width:100%!important;height:100%;max-width:none!important;flex:1;min-width:0;min-height:0;display:flex!important;transform:none!important;opacity:1!important;pointer-events:auto!important;background:transparent!important;box-shadow:none;border:0}
+.dshp-pane-body .rt-grip{display:none!important}
+/* 清洗页在分栏里跟着 dock-body 的滚动规则走，这里只补底色与最小宽度。 */
+.dshp-pane-clean{background:var(--ui-canvas)}
+.dshp-pane-clean>.dshp-root{min-height:100%;max-width:none;background:var(--ui-canvas)!important}
+.dshp-pane-clean .dshp-studio-layout{min-height:100%}
+.dshp-pane-clean .dshp-studio-main{min-width:0}
+@media(max-width:640px){
+  .dshp-dock.dshp-pane{min-width:0;width:min(100vw,520px)!important}
+  .dshp-dock.dshp-pane[data-pane-mode="left"],.dshp-dock.dshp-pane[data-pane-mode="right"]{width:min(100vw,520px)!important}
+  .dshp-pane-tabs{padding-left:8px;padding-right:8px}.dshp-pane-tab{padding-left:9px;padding-right:9px}
+  .dshp-pane-head{flex-wrap:wrap;min-height:0;padding:6px 8px}
+  .dshp-pane-head .dshp-pane-modes{order:3}
+}
 `;
 
 		function formatSize(bytes) {
@@ -6655,6 +6914,19 @@ const productTheme = createProductTheme();
 .rt-session-map-node-id{font:600 var(--ui-text-helper)/var(--ui-leading-body) var(--ui-font);fill:var(--rt-ink,#18212f)}
 .rt-session-map-node-meta{font:400 var(--ui-text-helper)/var(--ui-leading-body) var(--ui-font);fill:var(--rt-muted,#64748b)}
 .rt-session-map-node-dot.running{fill:var(--rt-success,#10b981);background:var(--rt-success,#10b981)}.rt-session-map-node-dot.idle{fill:var(--rt-muted,#94a3b8);background:var(--rt-muted,#94a3b8)}.rt-session-map-node-dot.unknown{fill:var(--rt-warning,#f59e0b);background:var(--rt-warning,#f59e0b)}
+/* Shared task-board stage tones: cards and the read-only map use the same four states. */
+.rt-session-map-node-stage{font:600 var(--ui-text-helper)/var(--ui-leading-body) var(--ui-font);fill:var(--rt-muted,#64748b)}
+.rt-session-map-node-stage.is-wait{fill:var(--rt-warning,#d97706)}
+.rt-session-map-node-stage.is-live{fill:var(--rt-success,#059669)}
+.rt-session-map-node-stage.is-fail{fill:var(--rt-danger,#b63f3f)}
+.rt-session-map-node-stage.is-done{fill:var(--rt-muted,#64748b)}
+.rt-session-map-node.is-wait rect{fill:var(--rt-warning-bg,#3b2f12);stroke:var(--rt-warning,#f59e0b);stroke-width:2}
+.rt-session-map-node.is-live rect{fill:var(--rt-success-bg,#163a31);stroke:var(--rt-success,#10b981);stroke-width:2}
+.rt-session-map-node.is-fail rect{fill:var(--rt-danger-bg,#fbeeed);stroke:var(--rt-danger,#b63f3f);stroke-width:2}
+.rt-session-map-node.is-done rect{fill:var(--rt-bg-surface,#151f2b);stroke:var(--rt-border,#cbd5e1);stroke-dasharray:0;opacity:.72}
+.rt-session-map-node.is-wait .rt-session-map-node-dot{fill:var(--rt-warning,#f59e0b);background:var(--rt-warning,#f59e0b)}
+.rt-session-map-node.is-live .rt-session-map-node-dot{fill:var(--rt-success,#10b981);background:var(--rt-success,#10b981)}
+.rt-session-map-node.is-fail .rt-session-map-node-dot{fill:var(--rt-danger,#b63f3f);background:var(--rt-danger,#b63f3f)}
 .rt-session-map-detail{min-width:0;min-height:340px;overflow:auto;padding:12px;background:var(--rt-bg-surface,#fff)}
 .rt-session-map-detail-title{font-weight:600;font-size:var(--ui-text-section);line-height:var(--ui-leading-title);overflow-wrap:anywhere;color:var(--rt-ink,#18212f)}
 .rt-session-map-detail-status{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:var(--ui-text-helper);color:var(--rt-muted,#64748b)}
@@ -15416,6 +15688,41 @@ const productTheme = createProductTheme();
   -webkit-backdrop-filter:none;
 }
 
+/* Fullscreen scroll tiles must not sample another viewport-sized live blur
+ * or dozens of nested card filters. Keep the water, tint, glint and borders;
+ * only bounded chrome and dialog overlays retain live backdrop sampling. */
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) {
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) :is(.rt-page-content[data-page],.dshp-studio-main),
+:is(
+  .dshp-dock.dshp-studio-dock[data-fullscreen=true],
+  .dshp-dock.dshp-studio-dock:fullscreen,
+  .rt-full.rt-studio,
+  .rt-dock.rt-studio[data-fullscreen=true]
+) :is(.rt-page-content[data-page],.dshp-studio-main) :where(*):not(:where(
+  .rt-modal,.rt-modal *,.rt-modal-box,.rt-modal-box *,
+  .rt-shot-zoom,.rt-shot-zoom *,
+  .dshp-modal-bg,.dshp-modal-bg *,
+  .dshp-auth-mask,.dshp-auth-mask *,
+  .dshp-restart-mask,.dshp-restart-mask *,
+  [role=dialog],[role=dialog] *
+)) {
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+
 
 /* Detail surfaces are the last presentation layer for dense, expanded data.
  * The source components keep their data and interaction semantics; this file
@@ -19032,6 +19339,20 @@ const productTheme = createProductTheme();
       const loadIntel = () => {
         api({ op: 'intelStatus' }).then((r) => { setIntel(r && r.ok !== false ? r : null) }, () => setIntel(null))
       }
+      const syncIntelData = () => {
+        setIntelBusy(true); setIntelMsg(null)
+        api({ op: 'intelSync' }).then((r) => {
+          if (!r || r.ok === false) {
+            setIntelMsg({ err: (r && r.error) || '底库同步失败，继续使用本地数据' })
+          } else {
+            const result = r.result || {}
+            const label = { updated: '底库已同步', skipped: '底库无需更新或未配置数据源', deferred: '底库被占用，稍后重试' }[result.action]
+            setIntelMsg({ ok: label || String(result.action || '未更新') })
+          }
+          loadIntel()
+        }, (e) => setIntelMsg({ err: String((e && e.message) || e) }))
+          .finally(() => setIntelBusy(false))
+      }
       const refreshIntel = (force) => {
         setIntelBusy(true); setIntelMsg(null)
         api({ op: 'intelRefresh', force: force === true }).then((r) => {
@@ -19249,7 +19570,27 @@ const productTheme = createProductTheme();
                     h('span', { className: 'rt-tag ' + (intel.kev.available && intel.kev.stale !== true ? 'rt-tag-live' : 'rt-tag-warn') },
                       intel.kev.available ? (intel.kev.count + ' 条' + (intel.kev.stale ? '（过期）' : '')) : '不可用')),
                   h('div', { className: 'rt-mono rt-settings-tool-path' },
-                    intel.kev.note || ('上次更新 ' + Math.round(intel.kev.age_hours || 0) + ' 小时前；命中只作优先级提示，不阻断开工')))) : null)),
+                    intel.kev.note || ('上次更新 ' + Math.round(intel.kev.age_hours || 0) + ' 小时前；命中只作优先级提示，不阻断开工')))) : null,
+              intel && intel.cve_db ? h('div', { className: 'rt-settings-field-list' },
+                h('div', { className: 'rt-settings-tool-row' },
+                  h('div', { className: 'rt-settings-tool-head' },
+                    h('span', { className: 'rt-settings-tool-name' }, '公开漏洞底库（只读）'),
+                    h('span', { className: 'rt-tag ' + (intel.cve_db.available && !intel.cve_db.stale ? 'rt-tag-live' : 'rt-tag-warn') },
+                      intel.cve_db.available ? intel.cve_db.count + ' 条' : '未就绪')),
+                  h('div', { className: 'rt-mono rt-settings-tool-path' },
+                    intel.cve_db.available
+                      ? ('构建于 ' + (intel.cve_db.age_days == null ? '未知时间' : Math.round(intel.cve_db.age_days) + ' 天前')
+                        + (intel.cve_db.stale ? '｜数据已过保鲜期' : '')
+                        + (intel.cve_db.templates ? '｜模板目录 ' + intel.cve_db.templates.count + ' 条' : '')
+                        + (intel.cve_db.exploits ? '｜公开利用目录元数据 ' + intel.cve_db.exploits.count + ' 条' : '')
+                        + (intel.cve_db.poc_github ? '｜GitHub 参考目录 ' + intel.cve_db.poc_github.count + ' 个 CVE' : ''))
+                      : (intel.cve_db.note || '尚未构建底库，也未配置镜像')),
+                  intel.cve_db.path ? h('div', { className: 'rt-mono rt-settings-tool-path' }, intel.cve_db.path) : null,
+                  intel.intel_sync && intel.intel_sync.base
+                    ? h('div', { className: 'rt-mono rt-settings-tool-path' },
+                      '数据源 ' + intel.intel_sync.base + '｜' + (intel.intel_sync.enabled ? '自动同步已启用' : '自动同步已关闭'),
+                      h('button', { className: 'rt-btn rt-settings-action', disabled: intelBusy, onClick: syncIntelData }, intelBusy ? '同步中…' : '同步底库'))
+                    : h('div', { className: 'rt-settings-card-copy' }, '底库数据不随包分发；可在本机构建，或配置 REDTEAM_INTEL_BASE 镜像。'))) : null)),
 
           h('section', { id: 'rt-settings-config', className: 'rt-settings-section', role: 'tabpanel', 'aria-labelledby': 'rt-settings-tab-config', hidden: settingsSection !== 'config' },
             h('div', { className: 'rt-settings-section-head' },
@@ -20627,6 +20968,10 @@ const productTheme = createProductTheme();
     function SessionMap(props) {
       const engagement = typeof props.engagement === 'string' ? props.engagement : ''
       const refreshKey = props.refreshKey || 0
+      /* Stage data is injected by the shell's teamBoard view.  The map remains
+         read-only and does not duplicate host-side task-stage judgement. */
+      const stages = props.stages && typeof props.stages === 'object' ? props.stages : null
+      const compact = props.compact === true
       const [snapshot, setSnapshot] = React.useState(null)
       const [selectedId, setSelectedId] = React.useState(null)
       const [query, setQuery] = React.useState('')
@@ -20846,9 +21191,9 @@ const productTheme = createProductTheme();
         const availableWidth = Math.max(180, viewport.clientWidth - 18)
         const availableHeight = Math.max(180, viewport.clientHeight - 18)
         const fitted = Math.max(0.08, Math.min(1.6, Math.min(availableWidth / fitGraph.width, availableHeight / fitGraph.height)))
-        const next = mode === 'readable' ? Math.max(0.8, fitted) : fitted
+        const next = mode === 'readable' && !compact ? Math.max(0.8, fitted) : fitted
         setZoom(next)
-        if (mode === 'readable' && fitted < 0.8) {
+        if (mode === 'readable' && fitted < 0.8 && !compact) {
           const node = fitGraph.nodes.find((item) => item.id === selectedId) || fitGraph.nodes.find((item) => item.depth === 0)
           setPan(node ? { x: Math.max(18, (viewport.clientWidth - SESSION_MAP_NODE_WIDTH * next) / 3) - node.x * next, y: 36 - node.y * next } : { x: 18, y: 18 })
         } else setPan({ x: (viewport.clientWidth - fitGraph.width * next) / 2 - (fitGraph.minX || 0) * next, y: (viewport.clientHeight - fitGraph.height * next) / 2 - (fitGraph.minY || 0) * next })
@@ -21086,9 +21431,14 @@ const productTheme = createProductTheme();
                   const nodeStatus = sessionMapActivityClass(node.activity)
                   const selectedClass = node.id === selectedId ? ' selected' : ''
                   const orphanClass = node.orphan ? ' orphan' : ''
+                  const stageClass = (id) => {
+                    const entry = stages && stages[id]
+                    if (!entry || typeof entry.tone !== 'string' || entry.tone === '') return ''
+                    return ' is-' + entry.tone
+                  }
                   return h('g', {
                     key: node.id,
-                    className: 'rt-session-map-node' + selectedClass + orphanClass,
+                    className: 'rt-session-map-node' + selectedClass + orphanClass + stageClass(node.id),
                     transform: 'translate(' + node.x + ',' + node.y + ')',
                     role: 'button',
                     tabIndex: 0,
@@ -21126,8 +21476,11 @@ const productTheme = createProductTheme();
                       (displayedStale ? '上次：' : '') + sessionMapActivityLabel(node.activity) + (node.declaredRole ? ' · ' + SESSION_MAP_ROLE_NAMES[node.declaredRole] : '')),
                     h('text', { className: 'rt-session-map-node-task', x: 14, y: 69 },
                       sessionMapNodeLabel(node.currentTask ? '待办：' + node.currentTask : node.taskProgress ? '待办 ' + node.taskProgress.completed + '/' + node.taskProgress.total + ' 已完成' : node.subagentTiming ? '已记录活动 ' + sessionMapDuration(node.subagentTiming.settledMs) : '未提供待办详情')),
-                    h('text', { className: 'rt-session-map-node-foot', x: 14, y: 94 },
-                      (node.orphan ? '父会话缺失' : node.subagentMode ? sessionMapModeLabel(node.subagentMode) : node.parentId ? '子会话' : '根会话') + ' · 下属 ' + (context.childCounts.get(node.id) || 0) + ' 个会话'))
+                    stages && stages[node.id]
+                      ? h('text', { className: 'rt-session-map-node-stage is-' + stages[node.id].tone, x: 14, y: 94 },
+                        sessionMapNodeLabel(stages[node.id].label + (stages[node.id].taskSubject ? ' · ' + stages[node.id].taskSubject : '')))
+                      : h('text', { className: 'rt-session-map-node-foot', x: 14, y: 94 },
+                        (node.orphan ? '父会话缺失' : node.subagentMode ? sessionMapModeLabel(node.subagentMode) : node.parentId ? '子会话' : '根会话') + ' · 下属 ' + (context.childCounts.get(node.id) || 0) + ' 个会话'))
                 })))),
             h('aside', { className: 'rt-session-map-detail', 'aria-label': '所选会话详情' },
               selected
@@ -22054,7 +22407,7 @@ const productTheme = createProductTheme();
      * @param ctx - 客户端根上下文。
      */
     function applyDrillParts() {
-      return { CSS: CSS, Panel: Panel, setUI: setUI, useUI: useUI, isFullWindow: isFullWindow, setDockWidth: setDockWidth };
+      return { CSS: CSS, Panel: Panel, SessionMap: SessionMap, setUI: setUI, useUI: useUI, isFullWindow: isFullWindow, setDockWidth: setDockWidth };
     }
 
     exports.inject = inject
@@ -22152,6 +22505,219 @@ const productTheme = createProductTheme();
 			return st;
 		}
 
+		/* Task / drill / tasks / map / clean workspace.
+		 * 三种呈现形态同一套内容：浮动窗（可拖、可缩放）、靠左停靠、靠右停靠。
+		 * 状态存在 PANE_KEY_V2 里，v1 的旧记录自动迁成浮动窗。 */
+		const PANE_KEY = "dsh-purge-safe-pane-v1";
+		const PANE_KEY_V2 = "dsh-purge-safe-pane-v2";
+		const PANE_KEY_V3 = "dsh-purge-safe-pane-v3";
+		const PANE_TABS = ["drill", "tasks", "map", "clean"];
+		/* 三种：浮动窗、贴左整高、贴右整高。旧存档里的 right 直接可用。 */
+		const PANE_MODES = ["float", "left", "right"];
+		/* 浮动窗沿用旧版 dock 的尺寸（620 × 72vh），不是缩小的那块小板。 */
+		const PANE_DEFAULT_W = 620;
+		const PANE_DEFAULT_H_RATIO = 0.72;
+		function paneDefaultGeom() {
+			const vw = typeof window !== "undefined" ? Number(window.innerWidth) || 1280 : 1280;
+			const vh = typeof window !== "undefined" ? Number(window.innerHeight) || 800 : 800;
+			const w = Math.min(Math.max(360, PANE_DEFAULT_W), Math.max(360, vw - 32));
+			const h = Math.max(260, Math.min(Math.round(vh * PANE_DEFAULT_H_RATIO), vh - 24));
+			return { x: Math.max(12, vw - w - 12), y: 12, w, h };
+		}
+		function clampPaneGeom(g) {
+			const vw = typeof window !== "undefined" ? Number(window.innerWidth) || 1280 : 1280;
+			const vh = typeof window !== "undefined" ? Number(window.innerHeight) || 800 : 800;
+			const w = Math.min(Math.max(320, Number(g && g.w) || PANE_DEFAULT_W), Math.max(320, vw - 16));
+			const h = Math.min(Math.max(220, Number(g && g.h) || 480), Math.max(220, vh - 16));
+			const x = Math.min(Math.max(4, Number(g && g.x) || 0), Math.max(4, vw - w - 4));
+			const y = Math.min(Math.max(4, Number(g && g.y) || 0), Math.max(4, vh - h - 4));
+			return { x, y, w, h };
+		}
+		function paneStateFrom(raw, keepGeom) {
+			const tab = PANE_TABS.includes(raw.tab) ? raw.tab : "drill";
+			const mode = PANE_MODES.includes(raw.mode) ? raw.mode : "float";
+			const width = Math.min(Math.max(360, Number(raw.width) || PANE_DEFAULT_W), Math.max(360, (window.innerWidth || 1280) - 120));
+			return {
+				open: raw.open === true,
+				tab,
+				width,
+				mode,
+				/* v2 的浮窗默认是缩小的 360×480；升到 v3 时丢弃旧 geom，用 620×72vh 重新摆。 */
+				geom: keepGeom && raw.geom ? clampPaneGeom(raw.geom) : paneDefaultGeom(),
+				autoSid: typeof raw.autoSid === "string" ? raw.autoSid : "",
+			};
+		}
+		function readPaneState() {
+			/* 默认是浮动窗：620 宽、72vh 高、右上角贴边 —— 与旧的「编辑面板」观感一致。 */
+			const base = { open: false, tab: "drill", width: PANE_DEFAULT_W, autoSid: "", mode: "float", geom: paneDefaultGeom() };
+			try {
+				const current = JSON.parse(window.localStorage.getItem(PANE_KEY_V3) || "null");
+				if (current && typeof current === "object") return paneStateFrom(current, true);
+				const previous = JSON.parse(window.localStorage.getItem(PANE_KEY_V2) || "null");
+				if (previous && typeof previous === "object") return paneStateFrom(previous, false);
+				/* v1 只有右侧固定这一种：继承开合、页签和宽度，但形态统一落到浮动窗，
+				   让用户自己决定要不要再贴边。 */
+				const legacy = JSON.parse(window.localStorage.getItem(PANE_KEY) || "null");
+				if (legacy && typeof legacy === "object") {
+					const tab = PANE_TABS.includes(legacy.tab) ? legacy.tab : "drill";
+					const width = Math.min(Math.max(360, Number(legacy.width) || PANE_DEFAULT_W), Math.max(360, (window.innerWidth || 1280) - 120));
+					return Object.assign({}, base, {
+						open: legacy.open === true,
+						tab,
+						width,
+						autoSid: typeof legacy.autoSid === "string" ? legacy.autoSid : "",
+					});
+				}
+			} catch { /* private mode or malformed state */ }
+			return base;
+		}
+		function writePaneState(st) {
+			const payload = {
+				open: st.open === true,
+				tab: PANE_TABS.includes(st.tab) ? st.tab : "drill",
+				width: st.width,
+				mode: PANE_MODES.includes(st.mode) ? st.mode : "float",
+				geom: clampPaneGeom(st.geom || paneDefaultGeom()),
+				autoSid: st.autoSid || "",
+			};
+			try { window.localStorage.setItem(PANE_KEY_V3, JSON.stringify(payload)); } catch { /* ignore */ }
+			try { window.localStorage.setItem(PANE_KEY_V2, JSON.stringify(payload)); } catch { /* ignore */ }
+			try { window.localStorage.setItem(PANE_KEY, JSON.stringify({ open: payload.open, tab: payload.tab, width: payload.width, autoSid: payload.autoSid })); } catch { /* ignore */ }
+		}
+		let paneBus = Object.assign(readPaneState(), { listeners: new Set() });
+		function setPane(patch) {
+			paneBus = Object.assign({}, paneBus, patch);
+			writePaneState(paneBus);
+			paneBus.listeners.forEach((fn) => { try { fn(paneBus); } catch { /* ignore */ } });
+		}
+		function usePane() {
+			const [st, setSt] = useState(paneBus);
+			useEffect(() => {
+				const fn = (next) => setSt(next);
+				paneBus.listeners.add(fn);
+				setSt(paneBus);
+				return () => { paneBus.listeners.delete(fn); };
+			}, []);
+			return st;
+		}
+		function openPane(tab, opts) {
+			const next = PANE_TABS.includes(tab) ? tab : "drill";
+			setPane(Object.assign({ open: true, tab: next }, opts || {}));
+			if (next === "drill") {
+				try { if (__dshPurgeDrill && __dshPurgeDrill.setUI) __dshPurgeDrill.setUI({ open: true }); } catch { /* ignore */ }
+			}
+			if (dockBus.open) setDock({ open: false, authOpen: false, pending: "tab" });
+		}
+		function autoOpenPaneFor(sid, active) {
+			if (!sid || active !== true || paneBus.autoSid === sid) return false;
+			setPane({ autoSid: sid });
+			if (paneBus.open) return false;
+			openPane(paneBus.tab || "drill");
+			return true;
+		}
+		const paneFrameOriginalMargins = new WeakMap();
+		function paneFrameTarget() {
+			if (typeof document === "undefined") return null;
+			const overlay = document.querySelector("[data-shell-overlay]");
+			const frame = overlay && overlay.parentElement;
+			return frame && frame.style ? frame : null;
+		}
+		function restorePaneFrame(frame) {
+			if (!frame) return;
+			const saved = paneFrameOriginalMargins.get(frame);
+			if (!saved) return;
+			frame.style.marginLeft = saved.left;
+			frame.style.marginRight = saved.right;
+			paneFrameOriginalMargins.delete(frame);
+		}
+		/* 停靠态（左/右）才给官方 frame 让宽度；浮动态一律不改 frame —— 浮动窗本来就该盖在正文上，
+		   把正文永久挤窄等于又造了一根固定侧栏，正是要去掉的那个形态。 */
+		function adoptPaneFrame(open, width, mode) {
+			const frame = paneFrameTarget();
+			if (!frame) return;
+			const settled = PANE_MODES.includes(mode) ? mode : "float";
+			if (!open || settled === "float") {
+				restorePaneFrame(frame);
+				return;
+			}
+			if (!paneFrameOriginalMargins.has(frame)) {
+				paneFrameOriginalMargins.set(frame, { left: frame.style.marginLeft || "", right: frame.style.marginRight || "" });
+			}
+			const saved = paneFrameOriginalMargins.get(frame);
+			const viewport = typeof window !== "undefined" ? Number(window.innerWidth) || 0 : 0;
+			const maxWidth = viewport > 640
+				? Math.min(760, Math.max(0, viewport - 16))
+				: Math.min(Math.max(0, viewport), 520);
+			const applied = Math.min(Math.max(0, Number(width) || 0), maxWidth);
+			frame.style.marginLeft = settled === "left" && applied > 0 ? Math.round(applied) + "px" : saved.left;
+			frame.style.marginRight = settled === "right" && applied > 0 ? Math.round(applied) + "px" : saved.right;
+		}
+
+		function fetchTeamBoard(sessionId) {
+			const sid = sessionId || currentSessionId(rewindSessions || (rewindHost && rewindHost.sessions)) || "";
+			return fetch("/redteam/api", {
+				method: "POST",
+				headers: { "content-type": "application/json" },
+				body: JSON.stringify({ op: "teamBoard", session: sid || undefined }),
+			}).then((response) => response.json()).then((r) => {
+				if (!r || r.ok === false) return { state: "fail", tasks: [], failure: String((r && r.error) || "teamBoard"), sessions: [], note: "" };
+				const tasks = Array.isArray(r.tasks) ? r.tasks : [];
+				const failure = Array.isArray(r.failures) && r.failures.length ? String(r.failures[0].failure || "") : "";
+				return {
+					state: failure ? "fail" : (Array.isArray(r.root_sessions) && r.root_sessions.length ? "on" : "idle"),
+					tasks,
+					failure,
+					sessions: Array.isArray(r.sessions) ? r.sessions : [],
+					note: String(r.note || ""),
+				};
+			}).catch(() => ({ state: "fail", tasks: [], failure: "网络", sessions: [], note: "" }));
+		}
+		function stageMapOf(board) {
+			const out = {};
+			const tasks = board && Array.isArray(board.tasks) ? board.tasks : [];
+			for (const task of tasks) {
+				if (!task || (!task.sessionId && !task.root)) continue;
+				const sessionId = String(task.sessionId || task.root);
+				const tone = task.stage === "ended" ? "done"
+					: task.stage === "working" ? "live"
+						: task.stage === "person/blocked" || task.stage === "person/failed" ? "fail"
+							: typeof task.stage === "string" && task.stage.indexOf("person/") === 0 ? "wait" : "quiet";
+				const label = task.stage === "ended" ? "已完成"
+					: task.stage === "person/answer" ? "等人提供"
+						: task.stage === "person/review" ? "等人验收"
+							: task.stage === "person/blocked" ? "受阻"
+								: task.stage === "person/failed" ? "失败待处理"
+									: task.stage === "working" ? "在跑"
+										: task.stage === "queued" ? "排队中"
+											: task.stage === "idle" ? "空闲" : "未接入";
+				/* teamBoard is already ordered by the host's STAGE_RANK. Keep the
+				   first task per session so the map and cards share that authority. */
+				if (out[sessionId]) continue;
+				out[sessionId] = { tone, label, taskSubject: String(task.subject || "") };
+			}
+			return out;
+		}
+		function fetchOrchestratorSettings() {
+			return fetch("/redteam/api", {
+				method: "POST",
+				headers: { "content-type": "application/json" },
+				body: JSON.stringify({ op: "orchestratorSettings" }),
+			}).then((response) => response.json()).then((r) => {
+				if (!r || r.ok === false) return { ok: false, board: true, clockMinutes: 20, error: String((r && (r.error || r.message)) || "orchestratorSettings") };
+				return { ok: true, board: r.board === true, clockMinutes: Number(r.clockMinutes ?? r.stallMinutes) || 0 };
+			}).catch((error) => ({ ok: false, board: true, clockMinutes: 20, error: String(error && error.message || "网络") }));
+		}
+		function saveOrchestratorSettings(patch) {
+			return fetch("/redteam/api", {
+				method: "POST",
+				headers: { "content-type": "application/json" },
+				body: JSON.stringify(Object.assign({ op: "setOrchestratorSettings" }, patch)),
+			}).then((response) => response.json()).then((r) => {
+				if (!r || r.ok === false) return { ok: false, board: true, clockMinutes: 20, error: String((r && (r.error || r.message)) || "setOrchestratorSettings") };
+				return { ok: true, board: r.board === true, clockMinutes: Number(r.clockMinutes ?? r.stallMinutes) || 0 };
+			}).catch((error) => ({ ok: false, board: true, clockMinutes: 20, error: String(error && error.message || "网络") }));
+		}
+
 		/* ------------------------------------------------------------------
 		 * 「现在有什么需要我吗」—— 侧栏角标和悬浮提醒共用一个轮询。
 		 *
@@ -22229,6 +22795,11 @@ const productTheme = createProductTheme();
 				} catch { /* ignore */ }
 			};
 			if (readDrillAuth()) {
+				if (pending === "tab" && isRedteamModeActive()) {
+					openPane("drill");
+					try { if (__dshPurgeDrill && __dshPurgeDrill.setUI) __dshPurgeDrill.setUI({ open: true }); } catch { /* ignore */ }
+					return;
+				}
 				setDock({ open: true, tab: "drill", authOpen: false, pending: "tab" });
 				try { if (__dshPurgeDrill && __dshPurgeDrill.setUI) __dshPurgeDrill.setUI({ open: true }); } catch { /* ignore */ }
 				if (pending === "env") openEnv();
@@ -22251,6 +22822,14 @@ const productTheme = createProductTheme();
 		function toggleDock() {
 			if (dockBus.open) setDock({ open: false, authOpen: false, pending: "tab" });
 			else openDockClean();
+		}
+		function openNativeChipEntry() {
+			if (isRedteamModeActive()) {
+				if (readDrillAuth()) openPane("drill");
+				else requestDrill("tab");
+				return;
+			}
+			toggleDock();
 		}
 		syncDrillGrant();
 
@@ -22420,7 +22999,8 @@ const productTheme = createProductTheme();
 								if (!ready) return;
 								writeDrillAuth(true);
 								const kind = props.pending || "tab";
-								setDock({ authOpen: false, open: true, tab: "drill", pending: "tab" });
+							if (kind === "tab" && isRedteamModeActive()) openPane("drill");
+							else setDock({ authOpen: false, open: true, tab: "drill", pending: "tab" });
 								try { if (__dshPurgeDrill && __dshPurgeDrill.setUI) __dshPurgeDrill.setUI({ open: true }); } catch { /* ignore */ }
 								if (kind === "env") {
 									try { if (__dshPurgeDrill && __dshPurgeDrill.setUI) __dshPurgeDrill.setUI({ open: true, tab: "env" }); } catch { /* ignore */ }
@@ -23059,6 +23639,317 @@ const productTheme = createProductTheme();
 			return true;
 		}
 
+		/** Task / drill / session-map workspace — floating, docked left, or docked right. */
+		function RightPane() {
+			const t = useT();
+			const st = usePane();
+			const { theme } = useProductTheme();
+			const [sid, setSid] = useState("");
+			const [title, setTitle] = useState("");
+			const [board, setBoard] = useState({ state: "off", tasks: [], failure: "", sessions: [], note: "" });
+			const [orch, setOrch] = useState({ ok: false, board: true, clockMinutes: 20 });
+			const [orchDraft, setOrchDraft] = useState("");
+			const [orchError, setOrchError] = useState("");
+			const [bound, setBound] = useState(null);
+			const [mapTick, setMapTick] = useState(0);
+			const boardSeqRef = useRef(0);
+			const boardInflightRef = useRef(false);
+			const orchSeqRef = useRef(0);
+			const paneResizeCleanupRef = useRef(null);
+			const disposePaneResize = () => {
+				if (paneResizeCleanupRef.current) paneResizeCleanupRef.current();
+				paneResizeCleanupRef.current = null;
+			};
+			const emptyBoard = { state: "off", tasks: [], failure: "", sessions: [], note: "" };
+			const refreshBoard = () => {
+				if (!sid) {
+					boardSeqRef.current += 1;
+					boardInflightRef.current = false;
+					setBoard(emptyBoard);
+					return Promise.resolve(emptyBoard);
+				}
+				if (boardInflightRef.current) return Promise.resolve(null);
+				const seq = ++boardSeqRef.current;
+				boardInflightRef.current = true;
+				return fetchTeamBoard(sid).then((next) => {
+					if (seq === boardSeqRef.current) setBoard(next);
+					return next;
+				}).finally(() => {
+					if (seq === boardSeqRef.current) boardInflightRef.current = false;
+				});
+			};
+
+			useEffect(() => {
+				let dead = false;
+				const tick = () => {
+					const sessions = rewindSessions || (rewindHost && rewindHost.sessions);
+					const nextSid = currentSessionId(sessions) || "";
+					if (dead) return;
+					setSid(nextSid);
+					setTitle(currentSessionTitle(sessions) || "");
+					autoOpenPaneFor(nextSid, isRedteamModeActive());
+					if (paneBus.open) adoptPaneFrame(true, paneBus.width, paneBus.mode);
+				};
+				tick();
+				const timer = window.setInterval(tick, 1200);
+				return () => { dead = true; window.clearInterval(timer); adoptPaneFrame(false, 0, "float"); };
+			}, []);
+
+			useEffect(() => {
+			if (!st.open) disposePaneResize();
+			}, [st.open]);
+			useEffect(() => () => disposePaneResize(), []);
+
+			useEffect(() => {
+				boardSeqRef.current += 1;
+				boardInflightRef.current = false;
+				if (!st.open || (st.tab !== "tasks" && st.tab !== "map") || !sid) {
+					setBoard(emptyBoard);
+					return () => { boardSeqRef.current += 1; boardInflightRef.current = false; };
+				}
+				let dead = false;
+				const pull = () => { if (!dead) refreshBoard(); };
+				pull();
+				const timer = window.setInterval(pull, 3000);
+				return () => {
+					dead = true;
+					window.clearInterval(timer);
+					boardSeqRef.current += 1;
+					boardInflightRef.current = false;
+				};
+			}, [st.open, st.tab, sid]);
+
+			useEffect(() => {
+				if (!st.open || st.tab !== "tasks") return undefined;
+				let dead = false;
+				const seq = ++orchSeqRef.current;
+				fetchOrchestratorSettings().then((next) => {
+					if (dead || seq !== orchSeqRef.current) return;
+					setOrch(next);
+					setOrchError(next.ok ? "" : String(next.error || "orchestratorSettings"));
+					if (next.ok) setOrchDraft(String(next.clockMinutes || "0"));
+				});
+				return () => {
+					dead = true;
+					if (seq === orchSeqRef.current) orchSeqRef.current += 1;
+				};
+			}, [st.open, st.tab]);
+
+			useEffect(() => {
+				if (!st.open || st.tab !== "map" || !sid) { setBound(null); return undefined; }
+				let dead = false;
+				fetch("/redteam/api", {
+					method: "POST",
+					headers: { "content-type": "application/json" },
+					body: JSON.stringify({ op: "sessionBinding", session: sid }),
+				}).then((response) => response.json()).then((r) => {
+					if (!dead) setBound(r && r.ok !== false && typeof r.bound === "string" && r.bound ? r.bound : null);
+				}).catch(() => { if (!dead) setBound(null); });
+				return () => { dead = true; };
+			}, [st.open, st.tab, sid, mapTick]);
+
+			useEffect(() => {
+			adoptPaneFrame(st.open, st.width, st.mode);
+			const onResize = () => {
+				if (!paneBus.open) return;
+				adoptPaneFrame(true, paneBus.width, paneBus.mode);
+				if (paneBus.mode === "float") setPane({ geom: clampPaneGeom(paneBus.geom) });
+			};
+			window.addEventListener("resize", onResize);
+			return () => {
+				window.removeEventListener("resize", onResize);
+				adoptPaneFrame(false, 0, "float");
+			};
+			}, [st.open, st.width, st.mode]);
+
+			if (!st.open) return null;
+			const mode = PANE_MODES.includes(st.mode) ? st.mode : "float";
+			const geom = clampPaneGeom(st.geom || paneDefaultGeom());
+			const paneMaxWidth = () => Math.min(760, Math.max(300, (window.innerWidth || 1280) - 16));
+			/* 停靠形态只调宽度（拖右沿），浮动形态同时调宽高（拖右下角）。 */
+			const startResize = (event) => {
+				if (!event || event.button !== 0 || typeof window === "undefined") return;
+				event.preventDefault();
+				event.stopPropagation();
+				disposePaneResize();
+				const sx = event.clientX;
+				const sy = event.clientY;
+				const w0 = st.width;
+				const h0 = geom.h;
+				const move = (ev) => {
+					if (mode === "float") {
+						const w = Math.min(Math.max(300, w0 + (ev.clientX - sx)), paneMaxWidth());
+						const h = Math.min(Math.max(220, h0 + (ev.clientY - sy)), Math.max(220, (window.innerHeight || 800) - geom.y - 8));
+						setPane({ geom: clampPaneGeom({ x: geom.x, y: geom.y, w, h }) });
+						return;
+					}
+					/* 贴边时拖外侧那条边变宽：贴左用右沿（dx 正向变宽），贴右用左沿（dx 反向变宽）。 */
+					const delta = mode === "right" ? (sx - ev.clientX) : (ev.clientX - sx);
+					setPane({ width: Math.min(Math.max(300, w0 + delta), paneMaxWidth()) });
+				};
+				const up = () => {
+					window.removeEventListener("mousemove", move);
+					window.removeEventListener("mouseup", up);
+				};
+				window.addEventListener("mousemove", move);
+				window.addEventListener("mouseup", up);
+				paneResizeCleanupRef.current = up;
+			};
+			const startPaneDrag = (event) => {
+				if (mode !== "float" || !event || event.button !== 0 || typeof window === "undefined") return;
+				if (event.target && event.target.closest && event.target.closest("button,a,input,select,textarea,label")) return;
+				event.preventDefault();
+				const sx = event.clientX;
+				const sy = event.clientY;
+				const ox = geom.x;
+				const oy = geom.y;
+				const move = (ev) => setPane({ geom: clampPaneGeom({ x: ox + (ev.clientX - sx), y: oy + (ev.clientY - sy), w: geom.w, h: geom.h }) });
+				const up = () => {
+					window.removeEventListener("mousemove", move);
+					window.removeEventListener("mouseup", up);
+				};
+				window.addEventListener("mousemove", move);
+				window.addEventListener("mouseup", up);
+			};
+			const setMode = (next) => {
+				if (!PANE_MODES.includes(next) || next === mode) return;
+				disposePaneResize();
+				/* 从浮窗切回停靠时把宽度带过去，避免忽然变成默认 520。 */
+				const patch = { mode: next };
+				if (next === "float") {
+					/* 贴边宽度带进浮窗，位置沿用上次浮窗落点。 */
+					patch.width = Math.max(st.width, geom.w);
+					patch.geom = clampPaneGeom({ x: geom.x, y: geom.y, w: Math.max(st.width, geom.w), h: geom.h });
+				} else {
+					patch.width = Math.min(Math.max(300, geom.w), Math.min(760, Math.max(300, (window.innerWidth || 1280) - 16)));
+				}
+				setPane(patch);
+			};
+			const modeButton = (id, label) => h("button", {
+				key: id,
+				type: "button",
+				className: "dshp-pane-mode" + (mode === id ? " on" : ""),
+				role: "radio",
+				"aria-checked": mode === id ? "true" : "false",
+				title: t("pane.mode") + "：" + label,
+				onClick: () => setMode(id),
+			}, label);
+			const toneOf = (stage) => stage === "ended" ? "done"
+				: stage === "working" ? "live"
+					: stage === "person/blocked" || stage === "person/failed" ? "fail"
+						: typeof stage === "string" && stage.indexOf("person/") === 0 ? "wait" : "quiet";
+			const stageText = (stage) => stage === "ended" ? t("pane.stage.ended")
+				: stage === "person/answer" ? t("pane.stage.answer")
+					: stage === "person/review" ? t("pane.stage.review")
+						: stage === "person/blocked" ? t("pane.stage.blocked")
+							: stage === "person/failed" ? t("pane.stage.failed")
+								: stage === "working" ? t("pane.stage.working")
+									: stage === "queued" ? t("pane.stage.queued")
+										: stage === "idle" ? t("pane.stage.idle") : t("pane.stage.unknown");
+			const saveOrch = () => {
+				const seq = ++orchSeqRef.current;
+				const minutes = Number(orchDraft);
+				return saveOrchestratorSettings({ stallMinutes: Number.isFinite(minutes) ? minutes : 0 }).then((next) => {
+					if (seq !== orchSeqRef.current) return next;
+					setOrch(next);
+					if (next.ok) {
+						setOrchError("");
+						setOrchDraft(String(next.clockMinutes || "0"));
+					} else setOrchError(String(next.error || "setOrchestratorSettings"));
+					return next;
+				});
+			};
+			const tabButton = (id, label) => h("button", {
+				key: id,
+				type: "button",
+				className: "dshp-pane-tab" + (st.tab === id ? " on" : ""),
+				role: "tab",
+				"aria-selected": st.tab === id ? "true" : "false",
+				onClick: () => setPane({ tab: id }),
+			}, label);
+
+			let body;
+			if (st.tab === "drill") {
+				/* 复用 dock-body 那一套内嵌演练台样式，浮窗里就是之前那个完整页面，不再被挤成小板。 */
+				body = readDrillAuth() && __dshPurgeDrill && __dshPurgeDrill.Panel
+					? h("div", { className: "dshp-pane-body dshp-dock-body" }, h(__dshPurgeDrill.Panel, { embedded: true, sessionId: sid || null, sessionTitle: title || "" }))
+					: h("div", { className: "dshp-pane-scroll" },
+						h("div", { className: "dshp-pane-empty" }, t("dock.unauthorized")),
+						h("div", { className: "dshp-pane-actions" }, h("button", { type: "button", className: "primary", onClick: () => requestDrill("tab") }, t("pane.authorize"))));
+			} else if (st.tab === "tasks") {
+				const tasks = board.tasks || [];
+				body = h("div", { className: "dshp-pane-scroll" },
+					board.failure ? h("div", { className: "dshp-pane-empty" }, t("pane.tasksFail") + "：" + board.failure) : null,
+					!tasks.length ? h("div", { className: "dshp-pane-empty" }, board.state === "on" ? t("pane.tasksEmpty") : t("pane.tasksOff")) : null,
+					tasks.map((task) => h("article", { key: String(task.root || task.sessionId || "") + ":" + String(task.id || task.subject || ""), className: "dshp-pane-task dshp-pane-task-" + toneOf(task.stage) },
+						h("div", { className: "dshp-pane-task-head" },
+							h("div", { className: "dshp-pane-task-name" }, task.subject || task.id || ""),
+							h("span", { className: "dshp-pane-chip is-" + toneOf(task.stage) }, stageText(task.stage))),
+						task.description ? h("p", { className: "dshp-pane-task-desc" }, task.description) : null,
+						h("div", { className: "dshp-pane-task-meta" },
+							h("span", null, t("pane.owner") + "：" + (task.ownerName || t("pane.unowned"))),
+							task.stageReason ? h("span", null, "· " + task.stageReason) : null,
+							Array.isArray(task.blockedBy) && task.blockedBy.length ? h("span", null, "· 前置 " + task.blockedBy.length) : null,
+							Array.isArray(task.needs) && task.needs.length ? h("span", { className: "dshp-pane-needs" }, "· 需要：" + task.needs.map((item) => (item && (item.detail || item.kind)) || "").filter(Boolean).join("、")) : null))),
+										h("div", { className: "dshp-pane-actions" }, h("button", { type: "button", onClick: refreshBoard }, t("pane.refresh"))),
+					h("div", { className: "dshp-pane-orch" },
+						h("div", { className: "dshp-pane-orch-row" }, h("span", { className: "dshp-pane-orch-label" }, t("pane.orch.board")), h("span", { className: "dshp-pane-orch-fixed" }, t("pane.orch.always"))),
+						h("p", { className: "dshp-pane-orch-hint" }, t("pane.orch.boardHint")),
+									orchError ? h("p", { className: "dshp-pane-error" }, t("pane.orch.error") + "：" + orchError) : null,
+						h("div", { className: "dshp-pane-orch-row" },
+							h("label", { className: "dshp-pane-orch-label", htmlFor: "dshp-orch-minutes" }, t("pane.orch.stall")),
+							h("input", { id: "dshp-orch-minutes", type: "number", min: "0", max: "240", value: orchDraft, onChange: (event) => setOrchDraft(event.target.value) }),
+											h("button", { type: "button", onClick: saveOrch }, t("pane.orch.save"))),
+						h("p", { className: "dshp-pane-orch-hint" }, t("pane.orch.stallHint"))));
+			} else if (st.tab === "clean") {
+				/* 授权之后演练台接管了整窗，清洗页必须还能从分栏进来，否则无从卸载。 */
+				body = h("div", { className: "dshp-pane-body dshp-dock-body dshp-pane-clean" }, h(SettingsRoot, { t }));
+			} else {
+				body = __dshPurgeDrill && __dshPurgeDrill.SessionMap
+					? h("div", { className: "dshp-pane-scroll dshp-pane-map" }, h(__dshPurgeDrill.SessionMap, { engagement: bound || "", refreshKey: mapTick, stages: stageMapOf(board), compact: true }))
+					: h("div", { className: "dshp-pane-scroll" }, h("div", { className: "dshp-pane-empty" }, t("pane.mapMissing")));
+			}
+			const paneStyle = mode === "float"
+				? { left: geom.x + "px", top: geom.y + "px", right: "auto", bottom: "auto", width: geom.w + "px", height: geom.h + "px" }
+				: (mode === "right" ? { right: "0px", width: st.width + "px" } : { left: "0px", width: st.width + "px" });
+			const node = h("aside", {
+				className: "dshp-dock dshp-pane",
+				"data-theme": theme === "white" ? "white" : "dusk",
+				"data-open": "1",
+				"data-pane-mode": mode,
+				role: "complementary",
+				"aria-label": "任务与演练台分栏",
+				style: paneStyle,
+			},
+				h("div", { className: "dshp-pane-head", onMouseDown: startPaneDrag, title: mode === "float" ? t("pane.dragHint") : undefined },
+					h("span", { className: "dshp-pane-brand", "aria-hidden": "true" }, String(title || "P").slice(0, 1)),
+					h("b", null, t("dock.toggle")),
+					h("span", { className: "dshp-pane-sub", title: title || "" }, title || (bound || t("pane.noSession"))),
+					h("span", { className: "dshp-pane-modes", role: "radiogroup", "aria-label": t("pane.mode") },
+						modeButton("float", t("pane.mode.float")),
+						modeButton("left", t("pane.mode.left")),
+						modeButton("right", t("pane.mode.right"))),
+					h("span", { className: "dshp-pane-tools" },
+						h(ProductThemeControl, { t }),
+						readDrillAuth() && __dshPurgeDrill && __dshPurgeDrill.Panel
+							? h("button", { type: "button", title: t("pane.fullHint"), onClick: () => { setPane({ open: false }); requestDrill("full"); } }, t("pane.full"))
+							: null,
+						(st.tab === "tasks" || st.tab === "map") ? h("button", { type: "button", onClick: () => st.tab === "tasks" ? refreshBoard() : setMapTick((value) => value + 1) }, t("pane.refresh")) : null,
+						h("button", { type: "button", title: t("pane.close"), onClick: () => setPane({ open: false }) }, "×"))),
+				h("div", { className: "dshp-pane-tabs", role: "tablist" },
+					tabButton("drill", t("pane.drill")),
+					tabButton("tasks", t("pane.tasks")),
+					tabButton("map", t("pane.map")),
+					tabButton("clean", t("pane.clean"))),
+				body,
+				h("div", { className: "dshp-pane-resize", title: mode === "float" ? "拖动调整大小" : "拖动调整宽度", onMouseDown: startResize }));
+			try {
+				const rd = require("react-dom");
+				if (rd && typeof rd.createPortal === "function" && typeof document !== "undefined" && document.body) return rd.createPortal(node, fullscreenPortalHost());
+			} catch { /* host may not expose react-dom */ }
+			return node;
+		}
+
 		function NativeChipMount(props) {
 			const kind = props.kind;
 			const t = useT();
@@ -23129,7 +24020,7 @@ const productTheme = createProductTheme();
 				type: "button",
 				className: (kind === "hero" ? "dshp-hero-chip-btn" : "dshp-tab-btn") + (st.open ? " on" : ""),
 				title: t("dock.newSession"),
-				onClick: () => toggleDock(),
+				onClick: openNativeChipEntry,
 			}, t("dock.newSession"));
 			try {
 				const rd = require("react-dom");
@@ -23529,7 +24420,7 @@ const productTheme = createProductTheme();
 				name: "shell.overlay",
 				id: "dsh-purge-safe-dock",
 				order: 50,
-			}, () => h(react.Fragment, null, h(WelcomeNotice), h(PurgeDock), h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate), h(AttentionToast))));
+			}, () => h(react.Fragment, null, h(WelcomeNotice), h(PurgeDock), h(RightPane), h(HeroNewSessionMount), h(TabRowPurgeMount), h(EnvAdaptSendGate), h(AttentionToast))));
 			/* 侧栏角标已退役：胶囊本身就在画布上、还能拖到任意位置，
 			   再往官方侧栏塞一枚角标就是两个入口抢同一件事。提醒只留胶囊一个出口。 */
 			try {

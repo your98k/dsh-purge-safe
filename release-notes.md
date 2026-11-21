@@ -1,27 +1,22 @@
-# 2.0.0
-
-满血版本 + Super Agent 适配
+# 2.0.1
 
 ## 中文
 
-- 适配 **DeepSeek Harness 0.2.2-rc.3**。
-- 新增 **Super Agent**。
-- 优化提示词。
-- 降低拒绝率，提升稳定性。
+- 修复模式中的红队模式。
+- 修复权限设置中自定义模式的问题。
+- 新增运行中窗口查看。
 
 ## English
 
-- Adapted for **DeepSeek Harness 0.2.2-rc.3**.
-- Added **Super Agent** support.
-- Optimized prompts.
-- Reduced refusal rate and improved stability.
+- Fixed Red Team mode in the mode selector.
+- Fixed custom mode in permission settings.
+- Added support for viewing running windows.
 
 ## 日本語
 
-- **DeepSeek Harness 0.2.2-rc.3** に対応。
-- **Super Agent** を追加。
-- プロンプトを最適化。
-- 拒否率を低減し、安定性を向上。
+- モード選択のレッドチームモードを修正。
+- 権限設定のカスタムモードの問題を修正。
+- 実行中のウィンドウを確認できる機能を追加。
 
 ## 安装与更新
 
